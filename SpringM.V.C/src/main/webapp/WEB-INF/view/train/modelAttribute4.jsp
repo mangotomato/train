@@ -1,0 +1,2 @@
+${teacher.name}
+${teacher.age}

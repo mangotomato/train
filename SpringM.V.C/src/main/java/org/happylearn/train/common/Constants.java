@@ -1,4 +1,4 @@
-package org.happylearn.train.springmvc.web;
+package org.happylearn.train.common;
 
 public interface Constants {
 	public interface RequestTo {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    	
+    	<!-- 内容协商解析器 -->
+    	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    		<property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+			<property name="mediaTypes">
+				<map>
+					<entry key="html" value="text/html"/>
+					<entry key="json" value="application/json"/>
+					<entry key="xml" value="application/xml"/>
+				</map>
+			</property>
+			<property name="viewResolvers">
+				<list>
+					<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+						<property name="prefix" value="/WEB-INF/view/"/>
+						<property name="suffix" value=".jsp"/>
+					</bean>
+				</list>
+			</property>
+			<property name="defaultViews">
+				<list>
+					<bean class="com.alibaba.fastjson.support.spring.FastJsonJsonView" />
+					<bean class="org.springframework.web.servlet.view.xml.MarshallingView"> 
+	                    <property name="marshaller"> 
+	                        <bean class="org.springframework.oxm.xstream.XStreamMarshaller"/> 
+	                    </property> 
+	                </bean>
+				</list>
+			</property>
+		</bean>
+	
+		<!-- 内容协商管理器 -->
+    	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+			<property name="favorPathExtension" value="true" /><!-- 支持如/demo.json,代表mediaType为application/json -->
+			<property name="favorParameter" value="true" /><!-- 支持如/demo?format=json，代表mediaType为application/json -->
+			<property name="parameterName" value="format"/><!-- 指定参数为format -->
+			<property name="mediaTypes" ><!-- 媒体类型和名称对应关系 -->
+				<value>
+					json=application/json
+					xml=application/xml
+					html=application/html
+				</value>
+			</property>
+		</bean>
+</beans>
