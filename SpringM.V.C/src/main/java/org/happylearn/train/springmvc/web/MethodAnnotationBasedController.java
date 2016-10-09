@@ -3,8 +3,11 @@ package org.happylearn.train.springmvc.web;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.happylearn.train.springmvc.domain.Teacher;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -151,7 +154,7 @@ public class MethodAnnotationBasedController {
 	
 	// 暴露模型对象t，视图中可以获取t
 	@RequestMapping("/modelAttribute2")
-	public @ModelAttribute("t") Teacher testModel2() {
+	public @ModelAttribute("t") Teacher testModel2(Model model) {
 		return initTeacher();
 	}
 	
