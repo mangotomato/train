@@ -24,3 +24,6 @@
 
 3.使用好SpringMVC
 
+运行程序：
+
+ide中：clean jetty:run -Dmaven.test.skip
