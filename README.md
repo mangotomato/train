@@ -29,3 +29,11 @@
 运行程序：
 
 ide中：clean jetty:run -Dmaven.test.skip
+
+学习资料：
+
+SpringM.V.C/docs目录下
+
+1.看下spring-framework-reference 17章，Web MVC framework
+
+2.想深入了解实现，可以参看springMVC源码解析.doc
