@@ -16,7 +16,7 @@
 
 8.如果仅是为了学点新技能且有充余的时间，以上都不是问题
 
-9. 更适合互联网开发框架，前后端分离。同样也使用传统开发
+9.更适合互联网开发框架，前后端分离。同样也适用传统开发
 
 本次培训旨在：
 
@@ -29,3 +29,11 @@
 运行程序：
 
 ide中：clean jetty:run -Dmaven.test.skip
+
+学习资料：
+
+SpringM.V.C/docs目录下
+
+1.看下spring-framework-reference 17章，Web MVC framework
+
+2.想深入了解实现，可以参看springMVC源码解析.doc
