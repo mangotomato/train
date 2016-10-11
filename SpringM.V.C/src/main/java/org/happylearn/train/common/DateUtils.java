@@ -1,5 +1,6 @@
 package org.happylearn.train.common;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,5 +11,9 @@ public abstract class DateUtils {
 	
 	public static String getDateString(Date date) {
 		return new SimpleDateFormat(DATE_FORMAT).format(date);
+	}
+	
+	public static Date parseDate(String date) throws ParseException {
+		return new SimpleDateFormat(DATE_FORMAT).parse(date);
 	}
 }

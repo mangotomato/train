@@ -7,7 +7,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
     <!-- 设置扫描根目录-->
-	<context:component-scan base-package="org.happylearn.train.springmvc.web"/>
+	<context:component-scan base-package="org.happylearn.train.springmvc.web" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.method.ControllerAdviceBean"/>
+	</context:component-scan>
 	
 	<!-- 处理静态资源，如果自定义HandlerMapping,注意Order要比Integer.maxValue小 -->
 	<!-- 当HandlerMapping处理不了，直接转向 DefaultServletHttpRequestHandler进行静态资源处理 -->

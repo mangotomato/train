@@ -5,4 +5,5 @@ public interface Constants {
 		public static final String REDIRECT = "redirect:";
 		public static final String FORAWRD = "forward:";
 	}
+	
 }

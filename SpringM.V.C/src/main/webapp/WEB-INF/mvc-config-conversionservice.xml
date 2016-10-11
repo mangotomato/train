@@ -8,15 +8,16 @@
 	
 	
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-   
-   		<!-- 类型转换 
     	<property name="converters"> 
-    		
-    	</property-->
-    	<!-- 格式化 -->
+    		<set>
+    			<bean class="org.springframework.core.convert.support.StringToEnumConverterFactory"/>
+    		</set>
+    	</property>
     	
-    	<!-- property name="formatters">
-    	
-    	</property-->
+    	<property name="formatters">
+    		<set>
+    			<bean class="org.happylearn.train.formatter.CustomDateFormatter"/>
+    		</set>
+    	</property>
     </bean>
 </beans>
